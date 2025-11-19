@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard';
 import Resources from './components/Resources';
 import SymptomTracking from './components/SymptomTracking';
 import Insights from './components/Insights';
+import Footer from './components/Footer';
 import { mockResources, mockSymptomLogs, mockHealthMetrics } from './data/mockData';
 import { SymptomLog, HealthMetric } from './types';
 
@@ -21,34 +22,38 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Header activeView={activeView} onViewChange={setActiveView} />
 
-      {activeView === 'dashboard' && (
-        <Dashboard
-          symptomLogs={symptomLogs}
-          healthMetrics={healthMetrics}
-          onNavigate={setActiveView}
-        />
-      )}
+      <main className="flex-grow">
+        {activeView === 'dashboard' && (
+          <Dashboard
+            symptomLogs={symptomLogs}
+            healthMetrics={healthMetrics}
+            onNavigate={setActiveView}
+          />
+        )}
 
-      {activeView === 'tracking' && (
-        <SymptomTracking
-          symptomLogs={symptomLogs}
-          onAddLog={handleAddLog}
-        />
-      )}
+        {activeView === 'tracking' && (
+          <SymptomTracking
+            symptomLogs={symptomLogs}
+            onAddLog={handleAddLog}
+          />
+        )}
 
-      {activeView === 'resources' && (
-        <Resources resources={mockResources} />
-      )}
+        {activeView === 'resources' && (
+          <Resources resources={mockResources} />
+        )}
 
-      {activeView === 'insights' && (
-        <Insights
-          symptomLogs={symptomLogs}
-          healthMetrics={healthMetrics}
-        />
-      )}
+        {activeView === 'insights' && (
+          <Insights
+            symptomLogs={symptomLogs}
+            healthMetrics={healthMetrics}
+          />
+        )}
+      </main>
+
+      <Footer />
     </div>
   );
 }
