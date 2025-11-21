@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLogs } from "../api/logApi";
-import LogForm from "../components/logForm";
+import LogForm from "../components/LogForm";
 import LogList from "../components/LogList";
 
 export default function LogsPage() {

@@ -7,7 +7,7 @@ function App() {
     <div>
       <Navbar />
       <HomePage />
-      {/* Change to <LogsPage /> depending on what you’re working on */}
+      <LogsPage />
     </div>
   );
 }
